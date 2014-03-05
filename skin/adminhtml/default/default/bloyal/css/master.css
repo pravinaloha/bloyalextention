@@ -1,0 +1,17 @@
+
+
+li.bloyal-header dl dt.label {background:url(../images/bloyal.png)  no-repeat scroll 0 50% #D1DEDF;text-indent: -3000px;}
+
+h3.bloyal-header { background:url(../images/header.png) no-repeat 0 0px; height:100px; overflow:hidden; padding:0; margin-top:0; width:700px;  text-indent: -3000px;}
+
+button.bloyal span{ padding-left:20px; }
+button.bloyal { border-color:#ccc #aaa #aaa #ccc; background-color:#fff; background-image:url(../../images/btn_back_bg.gif); color:#555; }
+button.bloyal span { background-image:url(../images/btn_bl.png); }
+
+/*ul.tabs a.bloyal-section,
+ul.tabs a.bloyal-section:hover { background:url(../images/tabs_span_bg.gif) repeat-x 0 100%; border-bottom:none; padding:0.5em 0.5em 0.28em 1.5em; }
+ul.tabs a.bloyal-section:hover { background-color:#d8e6e6; }
+ul.tabs a.bloyal-section.active,
+ul.tabs a.bloyal-section.active:hover { background-color:#fff; }
+ul.tabs a.bloyal-section span,
+ul.tabs a.bloyal-section:hover span { background:url(../images/section.png) no-repeat 0 0; height:0; overflow:hidden; padding:24px 0 0; width:103px; }*/

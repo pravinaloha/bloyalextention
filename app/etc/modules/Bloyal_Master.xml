@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Bloyal_Master>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Bloyal_Master>
+    </modules>
+</config>
