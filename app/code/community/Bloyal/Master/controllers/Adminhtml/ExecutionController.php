@@ -79,24 +79,31 @@ class Bloyal_Master_Adminhtml_ExecutionController extends Mage_Adminhtml_Control
      */
 	public function newAction(){
 		
-		//Get modules
-		$modules = (array)Mage::getConfig()->getNode('modules')->children();
-		
-    	if(isset($modules['Bloyal_CatalogIntegrator'])){
-			Mage::getSingleton('bloyalCatalog/cron')->productsUpdater(false);
-			$this->_getSession()->addNotice(Mage::helper('bloyalMaster')->__('The Catalog Integrator Products Updater was executed.'));
-		}
-     
-		if(isset($modules['Bloyal_OrderIntegrator'])){
-            
-            Mage::getModel('bloyalOrder/cron')->updateOrder(false);
-			$this->_getSession()->addNotice(Mage::helper('bloyalMaster')->__('The Order Integrator Order Updater was executed.'));
+		try{
+			//Get modules
+			$modules = (array)Mage::getConfig()->getNode('modules')->children();
 			
-			Mage::getModel('bloyalOrder/cron')->submitOrderToBloyal(false);
-			$this->_getSession()->addNotice(Mage::helper('bloyalMaster')->__('The Order Integrator Order Submiter was executed.'));
-            
+	    	if(isset($modules['Bloyal_CatalogIntegrator'])){
+				Mage::getSingleton('bloyalCatalog/cron')->productsUpdater(false);
+				$this->_getSession()->addNotice(Mage::helper('bloyalMaster')->__('The Catalog Integrator Products Updater was executed.'));
+			}
+	     
+			if(isset($modules['Bloyal_OrderIntegrator'])){
+	            
+	            Mage::getModel('bloyalOrder/cron')->updateOrder(false);
+				$this->_getSession()->addNotice(Mage::helper('bloyalMaster')->__('The Order Integrator Order Updater was executed.'));
+				
+	            
+				Mage::getModel('bloyalOrder/cron')->submitOrderToBloyal(false);
+				$this->_getSession()->addNotice(Mage::helper('bloyalMaster')->__('The Order Integrator Order Submiter was executed.'));
+	            
+			}
+
+		}catch(Exception $e)
+		{
+			//
 		}
-		
+
 		return true;
 	}
 

@@ -69,12 +69,12 @@ class Bloyal_LoyaltyIntegrator_Model_Observer {
         }
 
         if (!$couponCode) {
-            if ($arrData['coupon_code'] && !$arrData['remove']) {
+            if (isset($arrData['coupon_code']) && $arrData['coupon_code'] && !$arrData['remove']) {
                 // Success
                 Mage::getSingleton('core/session')->setBloyalCouponCode($arrData['coupon_code']);
             }
 
-            if ($arrData['remove']) {
+            if (isset($arrData['remove'])) {
                 //Error 
                 Mage::getSingleton('core/session')->setBloyalCouponCode('');
             }

@@ -166,7 +166,8 @@ class Bloyal_OrderIntegrator_Model_Order extends Bloyal_Master_Model_Abstract {
     	$paymentData = $order->getPayment();
 
     	$credit_card_array =
-                array(  'AE' => 'AMEX',
+                array( 
+                        'AE' => 'AMEX',
                         'VI' => 'Visa',
                         'MC' => 'MasterCard',
                         'DI' => 'DdoSubmitOrderISCOVER',
@@ -174,13 +175,14 @@ class Bloyal_OrderIntegrator_Model_Order extends Bloyal_Master_Model_Abstract {
                         'MCI'=> 'MAESTRO INTERNATIONAL',
                         'SM' => 'SWITCH/MAESTRO',
                         'SO' => 'SOLO',
-                        'OT' => 'OTHER');
+                        'OT' => 'OTHER'
+                    );
 
     	if($paymentData->getMethod() == 'authorizenet') {
-    		$paymentCode = 'VISA';
+    		$paymentCode = 'VC';
     		$amount = $paymentData->getData('base_amount_authorized');
     	}elseif($paymentData->getMethod() == 'paypal_express'){
-    		$paymentCode = 'PAYPAL';
+    		$paymentCode = 'PayPros';
     		$amount = $paymentData->getData('base_amount_authorized');
     	}elseif($paymentData->getMethod() == 'checkmo'){
     		$paymentCode = 'DIRCASH';
@@ -543,12 +545,12 @@ class Bloyal_OrderIntegrator_Model_Order extends Bloyal_Master_Model_Abstract {
     		case 'ups';
 
                 $carrierCode = 'UPS';
-                $serviceCode = 'UP2';
+                $serviceCode = 'GND';
                 break;
             case 'usps';
 
 				$carrierCode = 'USPS';
-				$serviceCode = 'PRTY';
+				$serviceCode = 'USPS';
 				break;
 
     		case 'bordership':

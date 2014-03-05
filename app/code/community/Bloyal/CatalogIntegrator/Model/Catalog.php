@@ -213,8 +213,8 @@ class Bloyal_CatalogIntegrator_Model_Catalog extends Bloyal_Master_Model_Abstrac
         }
 
         // Get Device key
-        //$section = 'Catalogs/detail?device-key='.$strDeviceKey;
-        $section = 'Catalogs/detail';
+        $section = 'Catalogs/detail?device-key='.$strDeviceKey;
+        //$section = 'Catalogs/detail';
 
         // Get all catalogs as per device key
         $arrCatalogResult = $this->getCurlResponse($section);

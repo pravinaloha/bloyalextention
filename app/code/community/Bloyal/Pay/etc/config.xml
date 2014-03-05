@@ -145,7 +145,7 @@
                 <model>pay/method_pay</model>
                 <order_status>processing</order_status>
                 <title>Bloyal Gift Card</title>
-                <message>Please enter the card number incuding any dashes '-'.</message>
+                <message>Please enter the card number.</message>
             </bloyalgiftcard>
         </payment>
     </default>

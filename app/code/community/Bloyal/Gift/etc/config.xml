@@ -3,7 +3,7 @@
 <config>
     <modules>
         <Bloyal_Gift>
-            <version>0.1.9</version>
+            <version>0.0.1</version>
         </Bloyal_Gift>
     </modules>
     <global>        
@@ -86,19 +86,6 @@
         </routers>
     </admin>
     <adminhtml>
-        <menu>
-            <gift translate="title" module="gift">
-                <title>Bloyal</title>
-                <children>
-                    <giftcards translate="title" >
-                        <title>Manage Gift Cards</title>
-                        <action>gift/adminhtml_giftcards</action>                            
-                        <sort_order>0</sort_order>
-                    </giftcards>
-                </children>
-                <sort_order>900</sort_order>
-            </gift>
-        </menu>
         <acl>
             <resources>
                 <all>
@@ -176,10 +163,7 @@
                     </gift_observer_catalog_product_status_update>
                 </observers>
             </catalog_product_status_update>            
-            
-            
-            
-            
+     
             <sales_order_item_save_after>
                 <observers>
                     <gift_observer_sales_order_item_save_after>

@@ -31,7 +31,7 @@ class Bloyal_Master_Helper_Data extends Mage_Core_Helper_Abstract{
      *
      */
 	//public $apiUrl = 'https://api-staging.bloyal.com/';
-	public $apiUrl = 'https://api.bloyal.com/';
+	public $apiUrl = 'https://api1.bloyal.com/';
 
 	/**
      * Return bloyal configuration 
@@ -282,15 +282,15 @@ class Bloyal_Master_Helper_Data extends Mage_Core_Helper_Abstract{
 
 		$allStores = Mage::app()->getStores();
 		foreach ($allStores as $_eachStoreId => $val)
-		{
-			// $_storeCode = Mage::app()->getStore($_eachStoreId)->getCode();
-			$_storeName = Mage::app()->getStore($_eachStoreId)->getName();
+		{           
+			//echo $_storeCode = Mage::app()->getStore($_eachStoreId)->getCode();
+			$_storeName = Mage::app()->getStore($_eachStoreId)->getGroup()->getName();
 			$_storeId = Mage::app()->getStore($_eachStoreId)->getId();
 			$_websiteId =  Mage::getModel('core/store')->load($_storeId)->getWebsiteId();
 
-			$website = Mage::app()->getWebsite($_websiteId)->getName();
+			//echo $website = Mage::app()->getWebsite($_websiteId)->getName();
 	
-			if(trim(strtolower($website)) === trim(strtolower($strStoreName)))
+			if(trim(strtolower($_storeName)) === trim(strtolower($strStoreName)))
 			{
 				return array('website_id' => Mage::getModel('core/store')->load($_storeId)->getWebsiteId(), 'store_id' => $_storeId);
 				exit;

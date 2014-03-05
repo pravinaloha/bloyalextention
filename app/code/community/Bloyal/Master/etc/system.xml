@@ -167,7 +167,7 @@
                          <store1_name translate="label">
                             <label>Store 1 Name</label>
                             <frontend_type>text</frontend_type>
-                             <validate>required-entry</validate>
+                             <!-- <validate>required-entry</validate> -->
                             <sort_order>10</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
