@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_system_config_edit>
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>bloyal/css/master.css</stylesheet>
+            </action>
+        </reference>
+    </adminhtml_system_config_edit>
+	
+    <adminhtml_execution_index>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>bloyal/js/master.js</name>
+                <params/>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="bloyalMaster/adminhtml_execution" name="adminhtml_execution.grid.container" />
+        </reference>
+    </adminhtml_execution_index>
+	
+    <adminhtml_execution_grid>
+        <update handle="formkey"/>
+        <block type="bloyalMaster/adminhtml_execution_grid" name="adminhtml_execution.grid" output="toHtml"></block>
+    </adminhtml_execution_grid>
+    
+</layout>

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Bloyal_LoyaltyIntegrator>
+            <version>0.1.0</version>
+        </Bloyal_LoyaltyIntegrator>
+    </modules>
+    <frontend>
+        <routers>
+            <loyaltyintegrator>
+                <use>standard</use>
+                <args>
+                    <module>Bloyal_LoyaltyIntegrator</module>
+                    <frontName>loyaltyintegrator</frontName>
+                </args>
+            </loyaltyintegrator>
+        </routers>
+      
+    </frontend>
+    <global>
+        <rewrite>
+            <loyalty_integrator> 
+                <from><![CDATA[#^/checkout/cart/#]]></from>  <!-- the URL which u want to override-->
+                <to>/loyaltyintegrator/index/</to>  <!-- destination url -->
+            </loyalty_integrator>
+        </rewrite>
+        
+        <events>
+            <sales_quote_collect_totals_after>
+                <observers>
+                    <process_coupon>
+                        <type>model</type>
+                        <class>Bloyal_LoyaltyIntegrator_Model_Observer</class>
+                        <method>applyCouponDiscount</method>
+                    </process_coupon>
+                </observers>
+            </sales_quote_collect_totals_after>
+            <sales_order_place_after>
+                <observers>
+                    <process_coupon>
+                        <type>model</type>
+                        <class>Bloyal_LoyaltyIntegrator_Model_Observer</class>
+                        <method>unsetBloaylSession</method>
+                    </process_coupon>
+                </observers>
+            </sales_order_place_after>
+        </events>
+        
+        <helpers>
+            <bloyalLoyalty>
+                <class>Bloyal_LoyaltyIntegrator_Helper</class>
+            </bloyalLoyalty>
+        </helpers>
+        <models>
+            <bloyalLoyalty>
+                <class>Bloyal_LoyaltyIntegrator_Model</class>
+            </bloyalLoyalty>
+        </models>
+    </global>
+</config>

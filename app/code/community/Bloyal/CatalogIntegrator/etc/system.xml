@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<config>
+   <sections>
+	    <bloyalcatalog translate="label" module="bloyalCatalog">
+	    	<class>bloyal-section</class>
+            <label>Catalog Integrator</label>
+            <header_css>bloyal-header</header_css>
+            <tab>bloyal</tab>
+            <sort_order>110</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+	        <groups>
+		        <general translate="label">
+                    <label>Catalog General Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <logs translate="label">
+                            <label>Logs</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <comment>If the Magento Logs are disabled then this setting won't take effect.</comment>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </logs>
+                        <product_attributeset translate="label">
+                            <label>Products Attribute Set</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>bloyalCatalog/system_config_source_attributeset</source_model>
+                            <comment>The Attribute Set used to generate new incoming products.</comment>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </product_attributeset>
+                        <product_active translate="label">
+                            <label>Products Active</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <comment>This field will control the products status when are added as new.</comment>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </product_active>         
+                    </fields>
+                </general>
+	      	</groups>
+		</bloyalcatalog>
+	</sections>
+</config>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <gift_adminhtml_giftcards_index>
+        <reference name="content">
+            <block type="gift/adminhtml_giftcards" name="giftcards" />
+        </reference>
+        <reference name="js">
+            <block type="core/template" template="bloyal/giftcards/bloyalcardbalance.phtml" />
+        </reference>
+    </gift_adminhtml_giftcards_index>
+</layout>

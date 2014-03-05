@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+    	<Bloyal_Master>
+        	<version>0.0.3</version>
+		</Bloyal_Master>
+	</modules>
+	<global>
+		<helpers>
+			<bloyalMaster>
+				<class>Bloyal_Master_Helper</class>
+			</bloyalMaster>
+		</helpers>
+		<blocks>
+			<bloyalMaster>
+				<class>Bloyal_Master_Block</class>
+			</bloyalMaster>
+		</blocks>
+		<models>
+        	<bloyalMaster>
+        		<class>Bloyal_Master_Model</class>
+        		<resourceModel>bloyalMaster_resource</resourceModel>
+        	</bloyalMaster>
+        	<bloyalMaster_resource>
+        		<class>Bloyal_Master_Model_Resource</class>
+        		<entities>
+        			<execution>
+        				<table>bloyal_execution</table>
+       				</execution>
+				</entities>
+			</bloyalMaster_resource>
+		</models>
+		<resources>
+			<bloyalMaster_setup>
+				<setup>
+					<module>Bloyal_Master</module>
+					<class>Bloyal_Master_Model_Resource_Setup</class>
+				</setup>
+			</bloyalMaster_setup>
+		</resources>
+		<template>
+            <email>
+                <bloyalmaster_email_email_template translate="label" module="bloyalMaster">
+                    <label>bLoyal Notification</label>
+                    <file>bloyal/bloyal_notification.html</file>
+                    <type>html</type>
+				</bloyalmaster_email_email_template>
+            </email>
+        </template>		
+	</global>
+	<crontab>
+        <jobs>
+	        <clean_execution_table>
+        		<schedule><cron_expr>0 03 * * 4</cron_expr></schedule>
+                <run><model>bloyalMaster/cron::cleanExecutionTable</model></run>
+			</clean_execution_table>
+		</jobs>
+	</crontab>
+	<admin>
+        <routers>
+            <adminhtml>
+                <args>
+                	<modules>
+                		<Bloyal_Master before="Mage_Adminhtml">Bloyal_Master_Adminhtml</Bloyal_Master>
+                	</modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+	<adminhtml>
+		<layout>
+			<updates>
+				<bloyalMaster>
+					<file>bloyalMaster.xml</file>
+				</bloyalMaster>
+			</updates>
+		</layout>
+		<menu>
+        	<bloyal module="bloyalMaster">
+	            <title>bLoyal</title>
+	            <sort_order>80</sort_order>
+	            <children>
+	                <execution module="bloyalMaster">
+	                    <title>Last Executions</title>
+	                    <sort_order>10</sort_order>
+	                    <action>adminhtml/execution</action>
+	                </execution>
+	                <settings module="bloyalMaster">
+	                    <title>Settings</title>
+	                    <sort_order>50</sort_order>
+	                    <action>adminhtml/system_config/edit/section/bloyalmaster</action>
+	                </settings>
+	            </children>
+	        </bloyal>
+    	</menu>
+		<acl>
+		    <resources>
+				<admin>
+				    <children>
+				        <system>
+		                	<children>
+		                		<config>
+		                			<children>
+			                			 <bloyal translate="title" module="bloyalMaster">
+											<title>bLoyal</title>
+						                 </bloyal>
+		                			</children>
+		                		</config>
+							</children>
+						</system>
+				    </children>
+				</admin>
+		    </resources>
+		</acl>
+	</adminhtml>
+	<defaul>
+   		<bloyal>
+	    	<general>
+	    		<bloyal_api_url>0</bloyal_api_url>
+	    		<domain>0</domain>
+	    		<username>0</username>
+	    		<password>0</password>
+	    		<app_id>0</app_id>
+    		</general>
+  		</bloyal>
+	</defaul>
+</config>
