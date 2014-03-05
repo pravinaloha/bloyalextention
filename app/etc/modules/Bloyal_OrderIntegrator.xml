@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <Bloyal_OrderIntegrator>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Sales/>
+                <Bloyal_Master/>
+            </depends>
+        </Bloyal_OrderIntegrator>
+    </modules>
+</config>

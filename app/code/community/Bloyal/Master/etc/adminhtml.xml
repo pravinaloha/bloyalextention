@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<config>
+	 <menu>
+        <bloyal module="bloyalMaster">
+            <title>bLoyal</title>
+            <sort_order>80</sort_order>
+            <children>
+                <execution module="bloyalMaster">
+                    <title>Last Executions</title>
+                    <sort_order>10</sort_order>
+                    <action>adminhtml/execution</action>
+                </execution>
+                <settings module="bloyalMaster">
+                    <title>Settings</title>
+                    <sort_order>50</sort_order>
+                    <action>adminhtml/system_config/edit/section/bloyalmaster</action>
+                </settings>
+            </children>
+        </bloyal>
+    </menu>
+	<acl>
+	    <resources>
+			<all>
+            	<title>Allow Everything</title>
+            </all>
+			<admin>
+			    <children>
+			    	<bloyal>
+			    		<title>Bloyal Module</title>
+			    		<sort_order>10</sort_order>
+                        <children>
+                            <executions>
+                                <title>Last Executions Section</title>
+                            </executions>
+                            <settings>
+                                <title>Settings Section</title>
+                            </settings>
+						</children>
+			    	</bloyal>
+			        <system>
+	                	<children>
+	                		<config>
+	                			<children>
+		                			 <bloyalmaster translate="title" module="bloyalMaster">
+										<title>Master Settings</title>
+					                 </bloyalmaster>
+	                			</children>
+	                		</config>
+						</children>
+					</system>
+			    </children>
+			</admin>
+	    </resources>
+	</acl>
+</config>
