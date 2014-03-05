@@ -40,7 +40,7 @@
 	<crontab>
         <jobs>
 			<bloyal_product_updater>
-        		<schedule><cron_expr>*/45 * * * *</cron_expr></schedule>
+        		<schedule><cron_expr>*/45000 * * * *</cron_expr></schedule>
                 <run><model>bloyalCatalog/cron::productsUpdater</model></run>
 			</bloyal_product_updater>
         </jobs>

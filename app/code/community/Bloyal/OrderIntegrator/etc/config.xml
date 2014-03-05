@@ -76,11 +76,11 @@
 	<crontab>
         <jobs>
 	        <submit_order_to_bloyal>
-        		<schedule><cron_expr>*/30 * * * *</cron_expr></schedule>
+        		<schedule><cron_expr>*/30000 * * * *</cron_expr></schedule>
                 <run><model>bloyalOrder/cron::submitOrderToBloyal</model></run>
 			</submit_order_to_bloyal>
 			<complete_orders_from_bloyal>
-	            <schedule><cron_expr>*/30 * * * *</cron_expr></schedule>
+	            <schedule><cron_expr>*/30000 * * * *</cron_expr></schedule>
 	            <run><model>bloyalOrder/cron::updateOrder</model></run>
 	        </complete_orders_from_bloyal>
 	        <notify_failedorders_email>
